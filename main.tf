@@ -42,10 +42,25 @@ resource "consul_config_entry" "exported_services_k8s" {
     partition = var.partition
     config_json = jsonencode({
         Services = [{
-            Name = "gs-frontend"
+            Name = "web"
             Namespace = "default"
             Consumers = [{
                 Partition = "default"
+            }]
+        }]
+    })
+}
+
+resource "consul_config_entry" "exported_services_vm" {
+    name = "default"
+    kind = "exported-services"
+    partition = "default"
+    config_json = jsonencode({
+        Services = [{
+            Name = "api"
+            Namespace = "default"
+            Consumers = [{
+                Partition = "k8s"
             }]
         }]
     })

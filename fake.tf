@@ -21,9 +21,9 @@ resource "consul_config_entry" "web" {
 }
 
 resource "consul_config_entry" "api-v1" {
-  name = "api-v1"
+  name = "api"
   kind = "service-defaults"
-  partition = var.partition
+  partition = "default"
   config_json = jsonencode({
         Protocol = "http"
         Namespace = "default"
