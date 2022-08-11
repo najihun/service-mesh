@@ -9,11 +9,7 @@ resource "consul_config_entry" "ingress_gateway" {
   namespace = "default"
   partition = var.partition
   config_json = jsonencode({
-    Listeners = [{
-      Port     = 5000
-      Protocol = "http"
-      Services = [{ Name  = "static-server", Hosts = ["*"] }]
-    },
+    Listeners = [
     {
       Port     = 5050
       Protocol = "http"
