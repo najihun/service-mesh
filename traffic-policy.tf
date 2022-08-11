@@ -1,6 +1,6 @@
 resource "consul_config_entry" "service_resolver" {
   kind = "service-resolver"
-  name = "gs-backend"
+  name = "api"
 
   config_json = jsonencode({
 
