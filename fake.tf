@@ -20,7 +20,7 @@ resource "consul_config_entry" "web" {
   })
 }
 
-resource "consul_config_entry" "api-v1" {
+resource "consul_config_entry" "api" {
   name = "api"
   kind = "service-defaults"
   partition = "default"
