@@ -22,35 +22,35 @@ resource "consul_config_entry" "service_splitter" {
   config_json = jsonencode({
     Splits = [
       {
-        Weight        = 0
+        Weight        = 50
         ServiceSubset = "v1"
       },
       {
-        Weight        = 100
+        Weight        = 50
         ServiceSubset = "v2"
       },
     ]
   })
 }
 
-resource "consul_config_entry" "service_router" {
-  kind = "service-router"
-  name = "web"
+# resource "consul_config_entry" "service_router" {
+#   kind = "service-router"
+#   name = "web"
 
-  config_json = jsonencode({
-    Routes = [
-      {
-        Match = {
-          HTTP = {
-            PathPrefix = "/v1"
-          }
-        }
+#   config_json = jsonencode({
+#     Routes = [
+#       {
+#         Match = {
+#           HTTP = {
+#             PathPrefix = "/v1"
+#           }
+#         }
 
-        Destination = {
-          Service = "v2"
-        }
-      },
-      # NOTE: a default catch-all will send unmatched traffic to "web"
-    ]
-  })
-}
+#         Destination = {
+#           Service = "v2"
+#         }
+#       },
+#       # NOTE: a default catch-all will send unmatched traffic to "web"
+#     ]
+#   })
+# }
