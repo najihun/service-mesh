@@ -28,7 +28,7 @@ resource "consul_config_entry" "web" {
 resource "consul_config_entry" "web-na" {
   name = "web-na"
   kind = "service-defaults"
-  partition = var.partition
+  partition = "k8s"
   config_json = jsonencode({
         Protocol = "http"
         Namespace = "default"
@@ -74,3 +74,24 @@ resource "consul_config_entry" "api" {
   })
 }
 
+resource "consul_config_entry" "api-v1" {
+  name = "api-v1"
+  kind = "service-defaults"
+  partition = "k8s"
+  config_json = jsonencode({
+        Protocol = "http"
+        Namespace = "default"
+        UpstreamConfig = {
+            Defaults = {
+                MeshGateway = {
+                    Mode = "local"
+                }
+                Limits = {
+                    MaxConnections = 512,
+                    MaxPendingRequests = 512,
+                    MaxConcurrentRequests = 512
+                }
+            }
+        }
+  })
+}
