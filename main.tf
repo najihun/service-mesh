@@ -13,11 +13,6 @@ resource "consul_config_entry" "ingress_gateway" {
     {
       Port     = 9090
       Protocol = "http"
-      Services = [{ Name  = "web", Hosts = ["*"]}]
-    },
-    {
-      Port     = 5050
-      Protocol = "http"
       Services = [{ Name  = "web-na", Hosts = ["*"]}]
     }
     ]
