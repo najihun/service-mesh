@@ -15,6 +15,11 @@ resource "consul_config_entry" "web" {
                     MaxPendingRequests = 512,
                     MaxConcurrentRequests = 512
                 }
+
+                passive_health_check = {
+                    interval     = "30s"
+                    max_failures = 10
+                }
             }
         }
   })
