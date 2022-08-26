@@ -15,23 +15,23 @@ resource "consul_config_entry" "service_resolver" {
   })
 }
 
-resource "consul_config_entry" "service_splitter" {
-  kind = "service-splitter"
-  name = consul_config_entry.service_resolver.name
+# resource "consul_config_entry" "service_splitter" {
+#   kind = "service-splitter"
+#   name = consul_config_entry.service_resolver.name
 
-  config_json = jsonencode({
-    Splits = [
-      {
-        Weight        = 50
-        ServiceSubset = "v1"
-      },
-      {
-        Weight        = 50
-        ServiceSubset = "v2"
-      },
-    ]
-  })
-}
+#   config_json = jsonencode({
+#     Splits = [
+#       {
+#         Weight        = 50
+#         ServiceSubset = "v1"
+#       },
+#       {
+#         Weight        = 50
+#         ServiceSubset = "v2"
+#       },
+#     ]
+#   })
+# }
 
 # resource "consul_config_entry" "service_router" {
 #   kind = "service-router"
