@@ -11,7 +11,7 @@ resource "consul_config_entry" "ingress_gateway" {
   config_json = jsonencode({
     Listeners = [
     {
-      Port     = 5050
+      Port     = 9090
       Protocol = "http"
       Services = [{ Name  = "web", Hosts = ["*"]}]
     }
