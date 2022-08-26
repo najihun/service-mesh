@@ -37,7 +37,6 @@ resource "consul_config_entry" "web-na" {
                 MeshGateway = {
                     Mode = "local"
                 }
-                local_connect_timeout_ms = 500
                 Limits = {
                     MaxConnections = 512,
                     MaxPendingRequests = 512,
