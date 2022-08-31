@@ -53,7 +53,7 @@ resource "consul_config_entry" "proxy_defaults" {
             http = {
                 name = "envoy.tracers.zipkin"
                 typedConfig = {
-                    type = "type.googleapis.com/envoy.config.trace.v3.ZipkinConfig"
+                    @type = "type.googleapis.com/envoy.config.trace.v3.ZipkinConfig"
                     collector_cluster = "jaeger_collector"
                     collector_endpoint_version = "HTTP_JSON"
                     collector_endpoint = "/api/v2/spans"
