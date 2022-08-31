@@ -32,7 +32,7 @@ resource "consul_config_entry" "web-na" {
                     Mode = "local"
                 }
                 passive_health_check = {
-                    interval     = "30s"
+                    interval     = "15s"
                     max_failures = 10
                 }
             }
