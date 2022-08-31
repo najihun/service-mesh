@@ -10,12 +10,6 @@ resource "consul_config_entry" "web" {
                 MeshGateway = {
                     Mode = "local"
                 }
-                Limits = {
-                    MaxConnections = 512,
-                    MaxPendingRequests = 512,
-                    MaxConcurrentRequests = 512
-                }
-
                 passive_health_check = {
                     interval     = "30s"
                     max_failures = 10
@@ -37,15 +31,9 @@ resource "consul_config_entry" "web-na" {
                 MeshGateway = {
                     Mode = "local"
                 }
-                Limits = {
-                    MaxConnections = 512,
-                    MaxPendingRequests = 512,
-                    MaxConcurrentRequests = 512
-                }
-
                 passive_health_check = {
                     interval     = "30s"
-                    max_failures = 5
+                    max_failures = 10
                 }
             }
         }
@@ -64,11 +52,6 @@ resource "consul_config_entry" "api" {
                 MeshGateway = {
                     Mode = "local"
                 }
-                Limits = {
-                    MaxConnections = 512,
-                    MaxPendingRequests = 512,
-                    MaxConcurrentRequests = 512
-                }
             }
         }
   })
@@ -86,11 +69,6 @@ resource "consul_config_entry" "api-v1" {
                 MeshGateway = {
                     Mode = "local"
                 }
-                Limits = {
-                    MaxConnections = 512,
-                    MaxPendingRequests = 512,
-                    MaxConcurrentRequests = 512
-                }
             }
         }
   })
@@ -107,11 +85,6 @@ resource "consul_config_entry" "cache" {
             Defaults = {
                 MeshGateway = {
                     Mode = "local"
-                }
-                Limits = {
-                    MaxConnections = 512,
-                    MaxPendingRequests = 512,
-                    MaxConcurrentRequests = 512
                 }
             }
         }

@@ -35,10 +35,10 @@ resource "consul_config_entry" "ingress_gateway" {
 resource "consul_config_entry" "exported_services_k8s" {
     name = "k8s"
     kind = "exported-services"
-    partition = var.partition
+    partition = "k8s"
     config_json = jsonencode({
         Services = [{
-            Name = "web"
+            Name = "web-na"
             Namespace = "default"
             Consumers = [{
                 Partition = "default"
