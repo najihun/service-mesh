@@ -1,6 +1,7 @@
 resource "consul_config_entry" "service_resolver" {
   kind = "service-resolver"
   name = "api"
+  partition = "k8s"
 
   config_json = jsonencode({
 
@@ -36,6 +37,7 @@ resource "consul_config_entry" "service_splitter" {
 resource "consul_config_entry" "service_router" {
   kind = "service-router"
   name = "web"
+  partition = "k8s"
 
   config_json = jsonencode({
     Routes = [
