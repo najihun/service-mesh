@@ -33,24 +33,24 @@ resource "consul_config_entry" "service_resolver" {
 #   })
 # }
 
-# resource "consul_config_entry" "service_router" {
-#   kind = "service-router"
-#   name = "web"
+resource "consul_config_entry" "service_router" {
+  kind = "service-router"
+  name = "web"
 
-#   config_json = jsonencode({
-#     Routes = [
-#       {
-#         Match = {
-#           HTTP = {
-#             PathPrefix = "/v1"
-#           }
-#         }
+  config_json = jsonencode({
+    Routes = [
+      {
+        Match = {
+          HTTP = {
+            PathPrefix = "/v1-test"
+          }
+        }
 
-#         Destination = {
-#           Service = "v1"
-#         }
-#       },
-#       # NOTE: a default catch-all will send unmatched traffic to "web"
-#     ]
-#   })
-# }
+        Destination = {
+          Service = "v1"
+        }
+      },
+      # NOTE: a default catch-all will send unmatched traffic to "web"
+    ]
+  })
+}
