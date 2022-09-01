@@ -109,7 +109,7 @@ resource "consul_config_entry" "exported_services_vm" {
     partition = "default"
     config_json = jsonencode({
         Services = [{
-            Name = "api"
+            Name = "*"
             Namespace = "default"
             Consumers = [{
                 Partition = "k8s"
