@@ -26,7 +26,7 @@ resource "consul_config_entry" "service_splitter" {
         ServiceSubset = "v1"
       },
       {
-        Weight        = 50
+        Weight        = 0
         ServiceSubset = "v2"
       },
     ]
