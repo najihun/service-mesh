@@ -80,6 +80,9 @@ resource "consul_config_entry" "proxy_defaults" {
     MeshGateway = {
       Mode = "local"
     }
+    Config = {
+      Protocol = "http"
+    }
   })
 }
 
