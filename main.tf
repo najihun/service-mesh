@@ -25,42 +25,42 @@ resource "consul_config_entry" "proxy_defaults" {
 
   config_json = jsonencode({
     Config = {
-        envoy_extra_static_clusters_json = {
-            connect_timeout = "3.000s"  
-            dns_lookup_family = "V4_ONLY"
-            lb_policy = "ROUND_ROBIN"
-            load_assignment = {
-                cluster_name = "jaeger_collector"
-                endpoints = [{        
-                    lb_endpoints = [{
-                        endpoint = {
-                            address = {
-                                socket_address = {
-                                    address = "10.0.0.5"
-                                    port_value = "9411"
-                                    protocol = "http"
-                                }
-                            }
-                        }          
-                    }]      
-                }]  
-            }
-            name = "jaeger_collector"
-            type = "STRICT_DNS"
-        }
+        # envoy_extra_static_clusters_json = {
+        #     connect_timeout = "3.000s"  
+        #     dns_lookup_family = "V4_ONLY"
+        #     lb_policy = "ROUND_ROBIN"
+        #     load_assignment = {
+        #         cluster_name = "jaeger_collector"
+        #         endpoints = [{        
+        #             lb_endpoints = [{
+        #                 endpoint = {
+        #                     address = {
+        #                         socket_address = {
+        #                             address = "10.0.0.5"
+        #                             port_value = "9411"
+        #                             protocol = "http"
+        #                         }
+        #                     }
+        #                 }          
+        #             }]      
+        #         }]  
+        #     }
+        #     name = "jaeger_collector"
+        #     type = "STRICT_DNS"
+        # }
 
-        envoy_tracing_json = {
-            http = {
-                name = "envoy.tracers.zipkin"
-                typedConfig = {
-                    "@type" = "type.googleapis.com/envoy.config.trace.v3.ZipkinConfig"
-                    collector_cluster = "jaeger_collector"
-                    collector_endpoint_version = "HTTP_JSON"
-                    collector_endpoint = "/api/v2/spans"
-                    shared_span_context = false    
-                }  
-            }
-        }
+        # envoy_tracing_json = {
+        #     http = {
+        #         name = "envoy.tracers.zipkin"
+        #         typedConfig = {
+        #             "@type" = "type.googleapis.com/envoy.config.trace.v3.ZipkinConfig"
+        #             collector_cluster = "jaeger_collector"
+        #             collector_endpoint_version = "HTTP_JSON"
+        #             collector_endpoint = "/api/v2/spans"
+        #             shared_span_context = false    
+        #         }  
+        #     }
+        # }
         protocol = "http"
     }
   })
