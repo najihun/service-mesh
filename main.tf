@@ -40,7 +40,7 @@ resource "consul_config_entry" "ingress_gateway" {
 #                         endpoint = {
 #                             address = {
 #                                 socket_address = {
-#                                     address = "10.0.0.5"
+#                                     address = "10.0.0.8"
 #                                     port_value = "9411"
 #                                     protocol = "http"
 #                                 }
