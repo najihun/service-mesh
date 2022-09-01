@@ -42,12 +42,23 @@ resource "consul_config_entry" "service_router" {
       {
         Match = {
           HTTP = {
-            PathPrefix = "/v1-test"
+            PathPrefix = "/v1"
           }
         }
 
         Destination = {
           Service = "v1"
+        }
+      },
+      {
+        Match = {
+          HTTP = {
+            PathPrefix = "/v2"
+          }
+        }
+
+        Destination = {
+          Service = "v2"
         }
       },
       # NOTE: a default catch-all will send unmatched traffic to "web"
