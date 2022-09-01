@@ -47,7 +47,8 @@ resource "consul_config_entry" "service_router" {
         }
 
         Destination = {
-          Service = "api.default.default"
+          Service = "api"
+          Partition = "default"
           ServiceSubset = "v1"
         }
       },
@@ -59,7 +60,8 @@ resource "consul_config_entry" "service_router" {
         }
 
         Destination = {
-          Service = "api.default.default"
+          Service = "api"
+          Partition = "default"
           ServiceSubset = "v2"
         }
       },
@@ -74,7 +76,8 @@ resource "consul_config_entry" "service_router" {
         }
 
         Destination = {
-          Service = "api.default.default"
+          Service = "api"
+          Partition = "default"
           ServiceSubset = "v1"
         }
       },
@@ -89,7 +92,8 @@ resource "consul_config_entry" "service_router" {
         }
 
         Destination = {
-          Service = "api.default.default"
+          Service = "api"
+          Partition = "default"
           ServiceSubset = "v2"
         }
       }      
