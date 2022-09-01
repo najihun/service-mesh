@@ -24,6 +24,10 @@ resource "consul_config_entry" "proxy_defaults" {
   name = "global"
 
   config_json = jsonencode({
+    MeshGateway = {
+      Mode = "local"
+    }
+    
     Config = {
         # envoy_extra_static_clusters_json = {
         #     connect_timeout = "3.000s"  
