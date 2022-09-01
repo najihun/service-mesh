@@ -18,7 +18,7 @@ resource "consul_config_entry" "service_resolver" {
 
 resource "consul_config_entry" "service_splitter" {
   kind = "service-splitter"
-  name = consul_config_entry.service_resolver.name
+  name = "api"
 
   config_json = jsonencode({
     Splits = [
@@ -36,8 +36,7 @@ resource "consul_config_entry" "service_splitter" {
 
 resource "consul_config_entry" "service_router" {
   kind = "service-router"
-  name = "web"
-  partition = "k8s"
+  name = "api"
 
   config_json = jsonencode({
     Routes = [
@@ -49,7 +48,7 @@ resource "consul_config_entry" "service_router" {
         }
 
         Destination = {
-          Service = "api"
+          Service = "api.default.default"
           ServiceSubset = "v1"
         }
       },
@@ -61,7 +60,7 @@ resource "consul_config_entry" "service_router" {
         }
 
         Destination = {
-          Service = "api"
+          Service = "api.default.default"
           ServiceSubset = "v2"
         }
       },
@@ -76,7 +75,7 @@ resource "consul_config_entry" "service_router" {
         }
 
         Destination = {
-          Service = "api"
+          Service = "api.default.default"
           ServiceSubset = "v1"
         }
       },
@@ -91,7 +90,7 @@ resource "consul_config_entry" "service_router" {
         }
 
         Destination = {
-          Service = "api"
+          Service = "api.default.default"
           ServiceSubset = "v2"
         }
       }      
