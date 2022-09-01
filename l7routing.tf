@@ -1,7 +1,6 @@
 resource "consul_config_entry" "service_resolver" {
   kind = "service-resolver"
   name = "api"
-  partition = "k8s"
 
   config_json = jsonencode({
 
