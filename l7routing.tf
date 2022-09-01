@@ -22,7 +22,7 @@ resource "consul_config_entry" "service_splitter" {
   config_json = jsonencode({
     Splits = [
       {
-        Weight        = 50
+        Weight        = 100
         ServiceSubset = "v1"
       },
       {
