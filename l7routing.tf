@@ -47,7 +47,8 @@ resource "consul_config_entry" "service_router" {
         }
 
         Destination = {
-          Service = "v1"
+          Service = "api"
+          ServiceSubset = "v1"
         }
       },
       {
@@ -58,9 +59,40 @@ resource "consul_config_entry" "service_router" {
         }
 
         Destination = {
-          Service = "v2"
+          Service = "api"
+          ServiceSubset = "v2"
         }
       },
+      {
+        Match = {
+          HTTP = {
+            queryParam = {
+              name = version
+              exact = "v1"
+            }
+          }
+        }
+
+        Destination = {
+          Service = "api"
+          ServiceSubset = "v1"
+        }
+      },
+      {
+        Match = {
+          HTTP = {
+            queryParam = {
+              name = version
+              exact = "v2"
+            }
+          }
+        }
+
+        Destination = {
+          Service = "api"
+          ServiceSubset = "v2"
+        }
+      }      
       # NOTE: a default catch-all will send unmatched traffic to "web"
     ]
   })
