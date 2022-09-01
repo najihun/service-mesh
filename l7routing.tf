@@ -67,7 +67,7 @@ resource "consul_config_entry" "service_router" {
         Match = {
           HTTP = {
             queryParam = {
-              name = version
+              name = "version"
               exact = "v1"
             }
           }
@@ -82,7 +82,7 @@ resource "consul_config_entry" "service_router" {
         Match = {
           HTTP = {
             queryParam = {
-              name = version
+              name = "version"
               exact = "v2"
             }
           }
