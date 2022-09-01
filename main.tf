@@ -77,9 +77,6 @@ resource "consul_config_entry" "proxy_defaults" {
   name = "global"
 
   config_json = jsonencode({
-    Config = {
-      protocol = "http" 
-    }
     MeshGateway = {
       Mode = "local"
     }
@@ -109,7 +106,7 @@ resource "consul_config_entry" "exported_services_vm" {
     partition = "default"
     config_json = jsonencode({
         Services = [{
-            Name = "*"
+            Name = "api"
             Namespace = "default"
             Consumers = [{
                 Partition = "k8s"
