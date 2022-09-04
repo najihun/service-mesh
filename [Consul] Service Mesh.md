@@ -18,7 +18,7 @@
   - Nomad: VM 환경에서 Consul Service Registry 및 Service Mesh 에 필요한 Envoy 기반 Gateway, Sidecar 설정에 대한 편의성을 위해 사용
   - Terraform: Consul Service Mesh 구성을 위해 수반되는 정책 관련 설정 관리 및 이력 관리에 대한 편의성을 위해 사용
 
-![Scenario](images/Screen Shot 2022-09-03 at 10.29.30 PM.png)
+![Scenario](./images/Screen Shot 2022-09-03 at 10.29.30 PM.png)
 
 
 
