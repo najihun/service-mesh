@@ -772,7 +772,7 @@ resource "consul_config_entry" "proxy_defaults" {
 
 ## Consul Server: Service Mesh - L7 Routing 설정 (Terraform)
 
-![Screen Shot 2022-09-04 at 10.13.50 AM](images/Screen Shot 2022-09-04 at 10.13.50 AM.png)
+<img src = "./images/Screen Shot 2022-09-04 at 10.13.50 AM.png">
 
 - Service Router
   - https://www.consul.io/docs/connect/config-entries/service-router
