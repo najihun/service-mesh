@@ -12,7 +12,7 @@
   - Consul Server VM: Demo 에서는 1 Node, 실 운영환경에서는 HA 구성을 위해 3 Node 이상 구성 권장
   - Consul Client VM: 일반적인 VM 환경 (Container 기반 App 구동을 위해 Docker 사용)
   - K8S Cluster: Demo 에서는 Azure AKS (Worker Node: 2) 사용. Network CNI 의 경우 Azure CNI 사용
-  - Consul Enterprise License: Admin Partition 등 Enterprise 기능 사용을 위해 필요. Test License 발급 가능 
+  - Consul Enterprise License: Admin Partition 등 Enterprise 기능 사용을 위해 필요. [Test License](https://www.hashicorp.com/products/consul/trial) 발급 가능 
     - Admin Partition 에 대한 이해: [Youtube - Consul Admin Partitions by Great-Stone](https://www.youtube.com/watch?v=BT0nQx-buIg) 참고
 - 선택적 필요 Resource
   - Nomad: VM 환경에서 Consul Service Registry 및 Service Mesh 에 필요한 Envoy 기반 Gateway, Sidecar 설정에 대한 편의성을 위해 사용
