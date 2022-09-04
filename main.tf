@@ -7,7 +7,7 @@ resource "consul_config_entry" "ingress_gateway" {
   name = "ingress-gateway"
   kind = "ingress-gateway"
   namespace = "default"
-  partition = var.partition
+  partition = "k8s"
   config_json = jsonencode({
     Listeners = [
     {
@@ -19,6 +19,7 @@ resource "consul_config_entry" "ingress_gateway" {
   })
 }
 
+## Open Tracing
 # resource "consul_config_entry" "proxy_defaults" {
 #   kind = "proxy-defaults"
 #   name = "global"
